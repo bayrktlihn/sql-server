@@ -1,12 +1,12 @@
-# ORN 1
+#ORN 1
 select * from Person.Person p
 	INNER JOIN Person.PersonPhone pp
 			ON pp.BusinessEntityID = p.BusinessEntityID
 WHERE p.FirstName like '%a%' and pp.PhoneNumber like '212-555%'
 
-# ORN 2
+#ORN 2
 
-## Çözüm 1
+##Çözüm 1
 SELECT st.countryregioncode, 
        Count(*) as TOPLAM
 FROM   sales.salesorderheader soh 
@@ -20,7 +20,7 @@ WHERE  EXISTS (SELECT sod.salesorderid
 GROUP  BY st.countryregioncode;
 
 
-## Çözüm 2
+##Çözüm 2
 
 SELECT st.countryregioncode, 
        Count(*) as TOPLAM
