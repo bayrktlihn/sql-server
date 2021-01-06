@@ -1,4 +1,4 @@
-#ORN 1
+# ORN 1
 
 ```sql
 select * from Person.Person p
@@ -7,9 +7,9 @@ select * from Person.Person p
 WHERE p.FirstName like '%a%' and pp.PhoneNumber like '212-555%'
 ```
 
-#ORN 2
+# ORN 2
 
-##Çözüm 1
+## Çözüm 1
 
 ```sql
 SELECT st.countryregioncode, 
@@ -26,7 +26,7 @@ GROUP  BY st.countryregioncode;
 ```
 
 
-##Çözüm 2
+## Çözüm 2
 
 ```sql
 SELECT st.countryregioncode, 
