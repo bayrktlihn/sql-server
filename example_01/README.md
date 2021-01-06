@@ -3,11 +3,12 @@
 ## Çözüm 1
 
 ```sql
-select * from Person.Person p
-	INNER JOIN Person.PersonPhone pp
-			ON pp.BusinessEntityID = p.BusinessEntityID
-WHERE p.FirstName like '%a%' 
-	and pp.PhoneNumber like '212-555%'
+SELECT * 
+FROM   person.person p 
+       INNER JOIN person.personphone pp 
+               ON pp.businessentityid = p.businessentityid 
+WHERE  p.firstname LIKE '%a%' 
+       AND pp.phonenumber LIKE '212-555%' 
 ```
 
 ## Çözüm 2
