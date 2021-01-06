@@ -1,10 +1,23 @@
 # ORN 1
 
+## Çözüm 1
+
 ```sql
 select * from Person.Person p
 	INNER JOIN Person.PersonPhone pp
 			ON pp.BusinessEntityID = p.BusinessEntityID
 WHERE p.FirstName like '%a%' and pp.PhoneNumber like '212-555%'
+```
+
+## Çözüm 2
+```sql
+SELECT * 
+FROM   person.person p 
+WHERE  EXISTS(SELECT * 
+              FROM   person.personphone pp 
+              WHERE  pp.businessentityid = p.businessentityid 
+                     AND p.firstname LIKE '%a%' 
+                     AND pp.phonenumber LIKE '212-555%') 
 ```
 
 # ORN 2
