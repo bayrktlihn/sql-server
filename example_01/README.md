@@ -6,7 +6,8 @@
 select * from Person.Person p
 	INNER JOIN Person.PersonPhone pp
 			ON pp.BusinessEntityID = p.BusinessEntityID
-WHERE p.FirstName like '%a%' and pp.PhoneNumber like '212-555%'
+WHERE p.FirstName like '%a%' 
+	and pp.PhoneNumber like '212-555%'
 ```
 
 ## Çözüm 2
