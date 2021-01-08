@@ -74,7 +74,8 @@ Sorgu döndürenler ise şu şekilde tanımlanır
 ```sql
 create function func_name(@param valtype, ....)
 returns table
-as select col_name, ... from table_name where col_name = condition ...
+as 
+return select col_name, ... from table_name where col_name = condition ...
 ```
 
 Tablo döndürenler ise su şekilde tanımlanır
