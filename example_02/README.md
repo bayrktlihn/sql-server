@@ -48,7 +48,7 @@ where	soh.SalesOrderID In (select	sod.SalesOrderID
 
 ```sql
 select	sod.ProductID, 
-		avg(UnitPrice) 
+		avg(UnitPrice) Average
 from	Sales.SalesOrderDetail sod 
 where	not exists(select	*
 					from	Production.Product p
