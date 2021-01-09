@@ -22,6 +22,7 @@ from Production.Product p
 				ON sod.ProductID = p.ProductID
 where p.ProductID > 100 
 		and p.Color is null
+		and (sod.UnitPrice * sod.OrderQty) > 5000
 		and sod.SalesOrderID IN (select	soh.SalesOrderID
 								from	Sales.SalesOrderHeader soh
 										INNER JOIN Sales.SalesTerritory st
