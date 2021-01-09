@@ -1,3 +1,20 @@
+# ORN 1 Soru
+
+person.person tablosunda title kolonuna göre MR için Erkek, Miss için Bekar Kadın, Mrs için Evli kadın ve Ms için Kadın yazsın bunlar haricindeki değerlere belirsiz yazılsın
+
+# ORN 2 Soru
+
+CountryRegionCode US olmayan SubTotal 30000'den küçük olan ProductID 100den büyük  rengi null olan  ve UnitPrice * OrderQty(Toplam) toplamı 5000den büyük olan ürünlerin adını ve satış toplamını
+
+# ORN 3 Soru
+
+Kırmızı renkli en büyük idli ürünün UnitPrice değeri 1000den büyük olan satışlara ait  SalesOrderHeader bilgileri gelsin
+
+# ORN 4 Soru
+
+Not Exists-Product tablosunda ListPrice değeri 100den küçük olan ürünlerin içinde olmayan ürünlerin SalesOrderDetail tablosunda UnitPrice ortalamasının 2000den büyük olduğu bilgileri büyükten küçüğe sıralanarak gelsin
+
+
 # ORN 1
 
 ```sql
