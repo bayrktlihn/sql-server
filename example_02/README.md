@@ -44,7 +44,7 @@ where p.ProductID > 100
 								from	Sales.SalesOrderHeader soh
 										INNER JOIN Sales.SalesTerritory st
 												ON st.TerritoryID = soh.TerritoryID
-								where soh.SubTotal < 3000
+								where soh.SubTotal < 30000
 										and not st.CountryRegionCode = 'US')
 ```
 
