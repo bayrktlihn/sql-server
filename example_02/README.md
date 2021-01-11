@@ -32,7 +32,6 @@ Not Exists-Product tablosunda ListPrice değeri 100den küçük olan ürünlerin
 # ORN 2
 
 ```sql
-
 select	p.Name, 
 		sum(sod.UnitPrice * sod.OrderQty) as toplam
 from Production.Product p
@@ -48,7 +47,7 @@ where p.ProductID > 100
 										and not st.CountryRegionCode = 'US')
 group by p.Name
 having SUM(sod.UnitPrice * sod.OrderQty) > 5000
-order by toplam desc									and not st.CountryRegionCode = 'US')
+order by toplam desc
 ```
 
 # ORN 3
