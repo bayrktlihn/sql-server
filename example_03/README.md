@@ -1,7 +1,6 @@
 # ORN 1
 ```sql
-select p.ProductId,
-p.Color,
+select p.Color,
 case
 	when p.Color = 'Red' then 'Kirmizi'
 	when p.Color = 'Blue' then 'Mavi'
@@ -9,12 +8,15 @@ case
 	when p.Color = 'Silver' then 'Gümüs'
 	when p.Color = 'Green' then 'Yesil'
 	when p.Color = 'Yellow' then 'Sari'
+	when p.Color = 'Silver/Black' then 'Gumus/Siyah'
+	when p.Color = 'White' then 'Beyaz'
+	when p.Color = 'Multi' then 'Cok'
 	else 'Renksiz'
 end as Renk,
 SUM(sod.UnitPrice)
 from Production.Product p
 	INNER JOIN Sales.SalesOrderDetail sod
 			ON sod.ProductID = p.ProductID
-group by p.ProductID, p.Color
+group by p.Color
 having SUM(sod.UnitPrice) > 2000
 ```
