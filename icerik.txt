@@ -1,0 +1,80 @@
+create view productColorCounts
+as
+select p.Color, count(p.Color) 'CountOfColor' from Production.Product p
+where p.Color is not null
+group by p.Color
+order by count(p.Color) desc
+offset 0 rows
+;
+
+--en çok renklerden ilk 3 üçünün salesorder detailde bu renge ait olanlardan kaçar tane olduğunu getiren sorgu
+select  p.Color, count(*) from Sales.SalesOrderDetail sod
+	INNER JOIN Production.Product p
+			ON p.ProductID = sod.ProductID
+where p.Color IN (select top 3 pcc.Color 
+				from productColorCounts pcc)
+group by p.Color
+
+
+go
+create procedure updateByColor(@oldColor varchar(50), @newColor varchar(50))
+as
+begin
+	update Production.Product set Color = @newColor where Color = @oldColor
+end
+
+exec updateByColor 'Kirmizi', 'Red'
+
+
+go
+create procedure createMyTable
+as
+begin
+	
+	create table person(
+		id int not null primary key identity,
+		first_name varchar(50),
+		last_name varchar(50),
+	);
+
+end
+
+exec createMyTable;
+
+go
+create function ufnPersonPagination(@sizePerPage int, @numberOfPage int)
+returns table
+as return select * from Production.Product p order by p.ProductID  offset (@sizePerPage * @numberOfPage) rows fetch next @sizePerPage rows only
+
+go
+create function ufnFactorial(@number int)
+returns int
+as
+begin
+	declare @result int;
+	set @result = 1
+
+	if (@number < 0)
+	begin
+		set @result = -1
+		return @result
+	end
+
+	if(@number = 0)
+	begin
+		return 1
+	end
+
+	while (@number > 0)
+	begin
+		set @result = @result * @number
+		set @number = @number - 1
+	end
+
+	return @result
+
+end
+
+select dbo.ufnFactorial(5)
+
+select * from dbo.ufnPersonPagination(10, 4);
