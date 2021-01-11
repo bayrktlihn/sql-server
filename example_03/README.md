@@ -1,11 +1,14 @@
 # ORN 1
 ```sql
-select p.ProductId, 
+select p.ProductId,
+p.Color,
 case
 	when p.Color = 'Red' then 'Kirmizi'
 	when p.Color = 'Blue' then 'Mavi'
 	when p.Color = 'Black' then 'Siyah'
 	when p.Color = 'Silver' then 'Gümüs'
+	when p.Color = 'Green' then 'Yesil'
+	when p.Color = 'Yellow' then 'Sari'
 end as Renk,
 SUM(sod.UnitPrice)
 from Production.Product p
