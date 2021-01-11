@@ -9,6 +9,7 @@ case
 	when p.Color = 'Silver' then 'Gümüs'
 	when p.Color = 'Green' then 'Yesil'
 	when p.Color = 'Yellow' then 'Sari'
+	else 'Renksiz'
 end as Renk,
 SUM(sod.UnitPrice)
 from Production.Product p
