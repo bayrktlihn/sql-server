@@ -31,3 +31,14 @@ where sod.ProductID = (select max(p.ProductID) - 23
 						from Production.Product p)
 group by sod.ProductID
 ```
+
+# ORN 3
+```sql
+select * 
+from Sales.SalesOrderHeader soh
+where soh.SalesOrderID = (select max(sod.SalesOrderID)
+							from Sales.SalesOrderDetail sod
+							where sod.ProductID IN (select p.ProductID
+													from Production.Product p
+													where p.ProductID > 500))
+```
