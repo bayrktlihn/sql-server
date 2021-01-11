@@ -20,3 +20,14 @@ from Production.Product p
 group by p.Color
 having SUM(sod.UnitPrice) > 2000
 ```
+
+# ORN 2
+
+```sql
+select sod.ProductID, 
+	sum(sod.UnitPrice)  Total
+from Sales.SalesOrderDetail sod
+where sod.ProductID = (select max(p.ProductID) - 23
+						from Production.Product p)
+group by sod.ProductID
+```
