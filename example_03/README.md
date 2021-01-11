@@ -33,6 +33,8 @@ group by sod.ProductID
 ```
 
 # ORN 3
+
+## Çözüm 1
 ```sql
 select * 
 from Sales.SalesOrderHeader soh
@@ -41,4 +43,16 @@ where soh.SalesOrderID = (select max(sod.SalesOrderID)
 							where sod.ProductID IN (select p.ProductID
 													from Production.Product p
 													where p.ProductID > 500))
+```
+
+## Çözüm 2
+
+```sql
+select	*
+from	Sales.SalesOrderHeader soh
+where soh.SalesOrderID = (select	max(sod.SalesOrderID)
+						from	Sales.SalesOrderDetail sod
+							INNER JOIN Production.Product p
+									ON p.ProductID = sod.ProductID
+						where p.ProductID > 500
 ```
