@@ -78,3 +78,32 @@ end
 
 exec uspTotalAmountByYearAndMonth 2011, 9
 ```
+
+# ORN 5
+
+```sql
+create procedure insertCulture(@givenPassword varchar(30), @culterId varchar(30), @Name varchar(50))
+as
+begin
+
+	if 'alihan' = @givenPassword
+	begin
+
+		if exists(select * from Production.Culture where CultureID = @culterId)
+		begin
+			print 'ayni ididen eklenemez' 
+		end
+		else
+		begin
+			insert into Production.Culture(CultureID, Name) values(@culterId, @Name)
+			print 'Eklendi' 
+		end
+	
+	end
+	else
+	begin
+		print 'Eklenemedi'
+	end
+	
+end
+```
