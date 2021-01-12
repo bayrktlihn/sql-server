@@ -95,7 +95,7 @@ begin
 		end
 		else
 		begin
-			insert into Production.Culture(CultureID, Name) values(@culterId, @Name)
+			insert into Production.Culture(CultureID, Name, ModifiedDate) values(@culterId, @Name, GETDATE())
 			print 'Eklendi' 
 		end
 	
