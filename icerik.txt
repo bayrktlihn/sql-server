@@ -42,7 +42,7 @@ end
 exec createMyTable;
 
 go
-create function ufnPersonPagination(@sizePerPage int, @numberOfPage int)
+create function ufnProductPagination(@sizePerPage int, @numberOfPage int)
 returns table
 as return select * from Production.Product p order by p.ProductID  offset (@sizePerPage * @numberOfPage) rows fetch next @sizePerPage rows only
 
