@@ -56,3 +56,26 @@ where soh.SalesOrderID = (select	max(sod.SalesOrderID)
 									ON p.ProductID = sod.ProductID
 						where p.ProductID > 500)
 ```
+
+# ORN 4
+
+```sql
+create procedure uspTotalAmountByYearAndMonth(@year int, @month int)
+as
+begin
+select	soh.SalesOrderID,
+		YEAR(soh.ShipDate) as Yil,
+		MONTH(soh.ShipDate) as Ay,
+		SUM(sod.UnitPrice * sod.OrderQty) as ToplamTutar,
+		count(*)
+from Sales.SalesOrderHeader soh
+	INNER JOIN Sales.SalesOrderDetail sod
+			ON sod.SalesOrderID = soh.SalesOrderID
+where YEAR(soh.ShipDate) = @year and MONTH(soh.ShipDate) = @month
+group by	soh.SalesOrderID, 
+			YEAR(soh.ShipDate),
+			MONTH(soh.ShipDate)
+end
+
+exec uspTotalAmountByYearAndMonth 2011, 9
+```
