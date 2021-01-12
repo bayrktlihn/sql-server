@@ -102,7 +102,7 @@ begin
 	end
 	else
 	begin
-		print 'Eklenemedi'
+		print 'Sifre Yanlis'
 	end
 	
 end
