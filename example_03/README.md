@@ -66,8 +66,7 @@ begin
 select	soh.SalesOrderID,
 		YEAR(soh.ShipDate) as Yil,
 		MONTH(soh.ShipDate) as Ay,
-		SUM(sod.UnitPrice * sod.OrderQty) as ToplamTutar,
-		count(*)
+		SUM(sod.UnitPrice * sod.OrderQty) as ToplamTutar
 from Sales.SalesOrderHeader soh
 	INNER JOIN Sales.SalesOrderDetail sod
 			ON sod.SalesOrderID = soh.SalesOrderID
